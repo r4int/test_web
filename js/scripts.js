@@ -2,20 +2,25 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     const imageContainer = document.getElementById("image-container");
-    const images = [];
+    const images = [
+        { src: 'assets/images/image1.jpg', link: 'https://open.spotify.com/track/61igNtS7cVfhSg4zoJ53oD?si=9384bb4b53dd418c' },
+        { src: 'assets/images/image2.jpg', link: 'https://open.spotify.com/track/2FZIabCRMEWAYfN69Ijn1U?si=cf431539ea6b4f89' },
+        { src: 'assets/images/image3.jpg', link: 'https://open.spotify.com/track/5mtTAScDytxMMqZj14NmlN?si=b71042cef1f14dea' },
+        { src: 'assets/images/image4.jpg', link: 'https://open.spotify.com/track/6GxdtMg7DdomU79EodUpfk?si=65e0da8b5adf4d9b' }
+    ];
 
-    // Fetch images from the assets/images directory
-    for (let i = 1; i <= 5; i++) { // Assuming there are 4 images named image1.jpg, image2.jpg, etc.
-        const imgPath = `assets/images/image${i}.jpg`;
-        images.push(imgPath);
-    }
+    // Create image elements wrapped in anchor tags and append them to the container
+    images.forEach(image => {
+        const anchor = document.createElement("a");
+        anchor.href = image.link;
+        anchor.target = "_blank"; // Open link in a new tab
 
-    // Create image elements and append them to the container
-    images.forEach(src => {
         const img = document.createElement("img");
-        img.src = src;
+        img.src = image.src;
         img.alt = "Image";
         img.classList.add("image-item");
-        imageContainer.appendChild(img);
+
+        anchor.appendChild(img);
+        imageContainer.appendChild(anchor);
     });
 });
