@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const images = [];
 
     // Fetch images from the assets/images directory
-    for (let i = 1; i <= 10; i++) { // Assuming there are 10 images named image1.jpg, image2.jpg, etc.
+    for (let i = 1; i <= 5; i++) { // Assuming there are 4 images named image1.jpg, image2.jpg, etc.
         const imgPath = `assets/images/image${i}.jpg`;
         images.push(imgPath);
     }
